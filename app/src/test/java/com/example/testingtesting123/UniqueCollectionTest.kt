@@ -41,4 +41,32 @@ class UniqueCollectionTest {
 
         assert(originalSize == 2 && newSize == 0) {"Items not cleared"}
     }
+
+    @Test
+    fun removeAnItemItemInTheCollection(){
+        val item1 = Item("item1")
+        val item2 = Item("item2")
+        collection.addItem(item1)
+        collection.addItem(item2)
+        val size = collection.size()
+        collection.remove(item1)
+        val newSize = collection.size()
+        assert(size != newSize)
+        assert(collection.get(0) != item1)
+    }
+
+    @Test
+    fun removeAnItemItemNotInTheCollection(){
+        val item1 = Item("item1")
+        val item2 = Item("item2")
+        collection.addItem(item1)
+        val size = collection.size()
+        collection.remove(item2)
+        val newSize = collection.size()
+        assert(size == newSize)
+    }
+
+    //test extra credit
+    //book list tests
+    //rewind tests
 }
